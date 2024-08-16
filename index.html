@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tap-to-Earn Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #E1E8EB;
+        }
+        #counter {
+            margin-top: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        #tapButton {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+        /* Адаптируйте путь к изображению в следующем CSS правиле */
+        #tapButton img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Simple Web Page</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About This Page</h2>
-            <p>This is a simple web page example to be used with GitHub Pages.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 My Website</p>
-    </footer>
+    <div id="counter">0</div>
+    <!-- Замените ниже 'Tap me!' на свой <img> тег, если нужно использовать изображение -->
+    <button id="tapButton">
+    <img src="khinkal.png" alt="Tap me!">
+</button>
+
+    <script>
+        let counter = 0;
+
+        document.getElementById('tapButton').addEventListener('click', function() {
+            counter++;
+            document.getElementById('counter').innerText = counter;
+        });
+    </script>
 </body>
 </html>

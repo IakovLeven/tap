@@ -6,7 +6,7 @@ bot = telebot.TeleBot('6931853039:AAECuwckDNtwhqjaNp07TGh_gR36w57dDdw')
 
 def webAppKeyboard():  # создание клавиатуры с webapp кнопкой
     keyboard = types.ReplyKeyboardMarkup(row_width=1)  # создаем клавиатуру
-    webAppTest = types.WebAppInfo("http://localhost:8765/monitoring/cluster/tenants")  # создаем webappinfo - формат хранения url
+    webAppTest = types.WebAppInfo("https://iakovleven.github.io/tap/")  # создаем webappinfo - формат хранения url
     webAppGame = types.WebAppInfo("https://games.mihailgok.ru")  # создаем webappinfo - формат хранения url
     one_butt = types.KeyboardButton(text="Тестовая страница", web_app=webAppTest)  # создаем кнопку типа webapp
     two_butt = types.KeyboardButton(text="Игра", web_app=webAppGame)  # создаем кнопку типа webapp
