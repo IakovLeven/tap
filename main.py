@@ -1,16 +1,17 @@
 from telebot import types
 import telebot
 
-bot = telebot.TeleBot('6931853039:AAECuwckDNtwhqjaNp07TGh_gR36w57dDdw')
+bot = telebot.TeleBot('7221708552:AAHcXDv-hNywS1N1DReWk0U6vViqhAoKAEE')
+
+global n
+data = ["Х", "И", "Н", "К", "А", "Л", "И"]
 
 
 def webAppKeyboard():  # создание клавиатуры с webapp кнопкой
     keyboard = types.ReplyKeyboardMarkup(row_width=1)  # создаем клавиатуру
     webAppTest = types.WebAppInfo("https://iakovleven.github.io/tap/")  # создаем webappinfo - формат хранения url
-    webAppGame = types.WebAppInfo("https://games.mihailgok.ru")  # создаем webappinfo - формат хранения url
-    one_butt = types.KeyboardButton(text="Тестовая страница", web_app=webAppTest)  # создаем кнопку типа webapp
-    two_butt = types.KeyboardButton(text="Игра", web_app=webAppGame)  # создаем кнопку типа webapp
-    keyboard.add(one_butt, two_butt)  # добавляем кнопки в клавиатуру
+    one_butt = types.KeyboardButton(text="Тапай хинкали!", web_app=webAppTest)  # создаем кнопку типа webapp
+    keyboard.add(one_butt)  # добавляем кнопки в клавиатуру
 
     return keyboard  # возвращаем клавиатуру
 
@@ -27,8 +28,9 @@ def webAppKeyboardInline():  # создание inline-клавиатуры с w
 @bot.message_handler(commands=['start'])  # обрабатываем команду старт
 def start_fun(message):
     bot.send_message(message.chat.id,
-                     'Привет, я бот для проверки телеграмм webapps!)\nЗапустить тестовые страницы можно нажав на кнопки.',
-                     parse_mode="Markdown", reply_markup=webAppKeyboard())  # отправляем сообщение с нужной клавиатурой
+                     "Хинкали",
+                     parse_mode="Markdown", reply_markup=webAppKeyboard())
+    n += 1
 
 
 @bot.message_handler(content_types="text")
@@ -45,4 +47,5 @@ def answer(webAppMes):
 
 
 if __name__ == '__main__':
+    n = 0
     bot.infinity_polling()
